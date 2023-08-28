@@ -1,0 +1,83 @@
+
+{% extends './base.html' %}
+
+{% block title %}Panel de Control{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+<style>
+  /* Estilos personalizados para los contenedores */
+  .section-container {
+    padding: 20px;
+    border-radius: 8px;
+    margin: 1rem 0; /* Separación de 1 rem (aprox. 5 cm) arriba y abajo */
+  }
+  /* Color de fondo para los contenedores */
+  .bg-custom1 {
+    background-color: #e9ecef; /* Color 1 */
+  }
+  .bg-custom2 {
+    background-color: #e9ecef; /* Color 2 */
+  }
+  .bg-custom3 {
+    background-color: #e9ecef; /* Color 3 */
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+<main class="album w-100 m-auto"> 
+  <!-- Contenedor principal (horizontal) -->
+  <h2>SISTEMA IOT DE MONITOREO Y CONTROL APLICADO A LA NUTRICIÓN EN LA CUYICULTURA</h2>
+  <div class="d-flex justify-content-center">
+
+    <!-- Primera parte - Alineada a la izquierda -->
+    <div class="section-container bg-custom1" style="text-align: justify;">
+      <div class="bg-custom2 text-center">
+        <img class="mb-4" src="{{ url_for('static', filename='img/camara.png')}}" alt="" width="100" height="100">
+      </div>
+      <h2>Vigilancia en Tiempo Real</h2>
+      <p>Esta función te brinda la oportunidad de observar y supervisar en tiempo real la actividad y bienestar de tus cuyes en su jaula. Con solo un clic, podrás visualizar lo que están haciendo en cualquier momento, lo que te proporcionará tranquilidad y seguridad al asegurarte de que tus cuyes estén protegidos y cuidados en todo momento. Esta capacidad de vigilancia en directo te permite estar al tanto de sus necesidades y condiciones, lo que contribuye a garantizar un entorno seguro y cómodo para tus adorables mascotas.</p>
+      <a href="https://1af8-186-47-136-28.ngrok-free.app/stream" class="btn btn-primary">Camara</a>
+    </div>
+
+    <!-- Espacio separador con 5 cm de separación -->
+    <div class="mb-5" style="margin-top: 1rem; margin-bottom: 1rem;"></div>
+
+    <!-- Segunda parte - Alineada al centro -->
+    <div class="section-container bg-custom2" style="text-align: justify;">
+      <div class="bg-custom2 text-center">
+        <img class="mb-4" src="{{ url_for('static', filename='img/reporte.png')}}" alt="" width="100" height="100">
+      </div>
+      <h2>Generar Informe de Sensores</h2>
+      <p>Te brinda la comodidad de obtener un informe exhaustivo en formato PDF, que reúne todas las mediciones recopiladas por los sensores en la jaula de los cuyes. Con solo un clic, tendrás acceso a una visión completa del entorno de tus cuyes, incluyendo datos como temperatura, humedad, nivel de luz y otras lecturas relevantes. Este informe te permitirá tomar decisiones informadas y realizar un seguimiento preciso del bienestar y las condiciones en las que se encuentran tus cuyes.</p>
+      <a href="/generate_report" class="btn btn-primary" onclick="generateReport()">Reporte</a>
+      <!-- Agrega el siguiente script en el head o al final del archivo para mostrar el mensaje flash -->
+      <script>
+        function generateReport() {
+          alert('Reporte generado exitosamente!');
+        }
+      </script>
+    </div>
+
+    <!-- Espacio separador con 5 cm de separación -->
+    <div class="mb-5" style="margin-top: 1rem; margin-bottom: 1rem;"></div>
+
+    <!-- Tercera parte - Alineada a la derecha -->
+    <div class="section-container bg-custom3" style="text-align: justify;">
+      <div class="bg-custom2 text-center">
+        <img class="mb-4" src="{{ url_for('static', filename='img/dashboard.png')}}" alt="" width="100" height="100">
+      </div>
+      <h2>Gráficas y Valores de Sensores</h2>
+      <p>Te ofrece una vista instantánea y actualizada del entorno de tus cuyes. Mediante gráficas dinámicas, podrás visualizar las mediciones en tiempo real de los sensores, como temperatura, humedad, nivel de luz y más. Además, una tabla detallada muestra todos los valores recopilados en tiempo real, brindándote un completo panorama del bienestar y las condiciones de tus cuyes. Con esta herramienta, podrás monitorear su ambiente de manera eficiente y tomar decisiones informadas para garantizar su comodidad y seguridad.</p>
+      <a href="https://stem.ubidots.com/app/dashboards/64b60095b2d816000b7201e8" class="btn btn-primary">Dashboard</a>
+    </div>
+
+  </div>
+
+  <!-- Botón para redirigir al login -->
+  <a href="/logout" class="btn btn-secondary mt-5">Salir</a>
+
+  <p class="mt-5 mb-3 text-muted">&copy; 2017–2023</p>
+</main>
+{% endblock %}

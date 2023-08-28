@@ -1,0 +1,40 @@
+
+{% extends './base.html' %}
+
+{% block title %}Registro{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block body %}
+<main class="form-signin w-100 m-auto"> 
+    <form action="/register" method="POST">
+      <img class="mb-4" src="{{ url_for('static', filename='img/cuy2.png')}}" alt="" width="100" height="100">
+      
+      <h1 class="h3 mb-3 fw-normal">Registrate aquí</h1>
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <div class="form-floating">
+        <input name= "username" type="username" class="form-control" id="floatingInput" placeholder=" ">
+        <label for="floatingInput">Usuario</label>
+      </div>
+      <div class="form-floating">
+        <input name= "fullname" type="username" class="form-control" id="floatingInput" placeholder=" ">
+        <label for="floatingInput">Nombre completo</label>
+      </div>
+      <div class="form-floating">
+        <input name= "email" type="username" class="form-control" id="floatingInput" placeholder="ejemplo@gmail.com">
+        <label for="floatingInput">Correo electrónico</label>
+      </div>
+      <div class="form-floating">
+        <input name= "password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Contraseña</label>
+      </div>
+  
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Registrate</button>
+
+      <p class="mt-5 mb-3 text-muted">&copy; 2017–2023</p>
+    </form>
+
+  </main>
+{% endblock %}
